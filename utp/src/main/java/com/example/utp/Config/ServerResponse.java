@@ -1,7 +1,5 @@
 package com.example.utp.Config;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.io.Serializable;
 
 public class ServerResponse<T> implements Serializable {
@@ -60,7 +58,6 @@ public class ServerResponse<T> implements Serializable {
     }
 
 
-    
 
     public static <T> ServerResponse<T> OK() {
         return new ServerResponse<T>(ResponseStatus.OK.getStatus());
@@ -76,6 +73,22 @@ public class ServerResponse<T> implements Serializable {
 
     public static <T> ServerResponse<T> OK(String msg, T data) {
         return new ServerResponse<T>(ResponseStatus.OK.getStatus(), msg, data);
+    }
+
+    public static <T> ServerResponse<T> ERROR() {
+        return new ServerResponse<T>(ResponseStatus.ERROR.getStatus());
+    }
+
+    public static <T> ServerResponse<T> ERROR(String msg) {
+        return new ServerResponse<T>(ResponseStatus.ERROR.getStatus(), msg);
+    }
+
+    public static <T> ServerResponse<T> ERROR(T data) {
+        return new ServerResponse<T>(ResponseStatus.ERROR.getStatus(), data);
+    }
+
+    public static <T> ServerResponse<T> ERROR(String msg, T data) {
+        return new ServerResponse<T>(ResponseStatus.ERROR.getStatus(), msg, data);
     }
 
     public static <T> ServerResponse<T> CREATED() {

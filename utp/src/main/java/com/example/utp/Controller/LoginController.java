@@ -3,6 +3,7 @@ package com.example.utp.Controller;
 import com.example.utp.Config.ServerResponse;
 import com.example.utp.Entity.User;
 import com.example.utp.Service.UserService;
+import com.example.utp.Util.NullException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,10 @@ public class LoginController {
     * 获取手机验证码*/
     @PostMapping("/tel")
     @ApiOperation("获取手机验证码")
-    public ServerResponse getTel(){
+    public ServerResponse getTel(Integer tel){
+        if(tel == null){
+            throw new NullException("1");
+        }
         //调用短信服务接口
         return null;
     }

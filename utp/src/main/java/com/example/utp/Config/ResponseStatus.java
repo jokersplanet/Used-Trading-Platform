@@ -8,6 +8,8 @@ public enum ResponseStatus {
 
     NO_CONTENT(204,"DELETE"),
 
+    ERROR(400,"ERROR"),
+
     NEED_LOGIN(401,"NEED LOGIN"),
 
     FORBIDDEN(403,"PERMISSION DENIED"),
